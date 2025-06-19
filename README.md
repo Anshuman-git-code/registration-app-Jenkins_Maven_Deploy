@@ -90,6 +90,34 @@ The project consists of two main EC2 instances:
 4. **Docker Deployment** → Deploys to containerized environment
 5. **Automated Testing** → Validates deployment success
 
+## 📁 Jenkins Job Configuration Details
+
+- **Source Code Management**: Git repository integration
+- **Build Step**: Maven goal `clean package`
+- **Post-Build Actions**:
+  - Transfer .war file to Docker-Host
+  - SSH commands for automated deployment:
+    ```bash
+    docker build -t webapp:v1 .
+    docker stop registerapp
+    docker rm registerapp
+    docker run -d --name registerapp -p 8086:8080 webapp:v1
+    ```
+
+## 🌐 Deployment Access
+
+The application is deployed and served by Tomcat on the Docker host.
+Access URL: `http://<your-ec2-public-ip>:8086/<app-name>`
+
+## 📚 Skills Demonstrated
+
+- Jenkins setup and configuration
+- Maven build integration
+- CI/CD pipeline automation
+- Docker image building and container orchestration
+- Artifact deployment via SSH
+- Managing multiple EC2 instances with defined roles
+
 ## 📝 Future Enhancements
 
 - Integration with version control systems (Git)
@@ -113,3 +141,5 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 **Note**: This project demonstrates a complete DevOps pipeline implementation using industry-standard tools and practices. It serves as a foundation for building robust CI/CD solutions in cloud environments.
+
+**Updated by**: Anshuman-git-code
