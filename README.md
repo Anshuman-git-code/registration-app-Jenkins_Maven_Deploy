@@ -1,6 +1,5 @@
-⸻
 
-🚀 CI/CD Pipeline with Jenkins and Docker
+##🚀 CI/CD Pipeline with Jenkins and Docker
 
 This project demonstrates how to set up a complete CI/CD pipeline using Jenkins to build a Java web application with Maven, then deploy it to a Dockerized Tomcat server hosted on a separate Docker-Host EC2 instance.
 
